@@ -12,7 +12,7 @@
     "lint": "tslint -p . --type-check",
     "start": "node .",
     "prepublish": "npm run lint && npm run build && npm test",
-    "test": "$(npm bin)/gulp test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -32,9 +32,6 @@
   "homepage": "https://github.com/OystParis/joi-phone-validator#readme",
   "devDependencies": {
     "chai": "^4.0.2",
-    "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-mocha": "^4.3.1",
     "mocha": "^3.0.2",
     "tslint": "^5.4.3",
     "tslint-config-standard": "^6.0.1",
