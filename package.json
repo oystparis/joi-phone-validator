@@ -1,14 +1,17 @@
 {
   "name": "joi-phone-validator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "engines": {
     "node": ">=4.0",
     "npm": ">=2.0"
   },
   "description": "Add to Joi a phone number validator/formatter/parser",
-  "main": "index.js",
+  "main": "lib/phone_validator.js",
   "scripts": {
+    "build": "tsc -p .",
+    "lint": "tslint -p . --type-check",
     "start": "node .",
+    "prepublish": "npm run lint && npm run build && npm test",
     "test": "$(npm bin)/gulp test"
   },
   "repository": {
@@ -28,14 +31,21 @@
   },
   "homepage": "https://github.com/OystParis/joi-phone-validator#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.2",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.2.4",
-    "gulp-mocha": "^3.0.0",
-    "mocha": "^3.0.2"
+    "gulp-mocha": "^4.3.1",
+    "mocha": "^3.0.2",
+    "tslint": "^5.4.3",
+    "tslint-config-standard": "^6.0.1",
+    "typescript": "^2.3.4"
   },
   "dependencies": {
-    "google-libphonenumber": "^1.0.27",
-    "joi": "^9.0.4"
+    "@types/google-libphonenumber": "^7.4.11",
+    "@types/joi": "^10.4.0",
+    "@types/source-map-support": "^0.4.0",
+    "google-libphonenumber": "^2.0.18",
+    "joi": "^10.6.0",
+    "source-map-support": "^0.4.15"
   }
 }
