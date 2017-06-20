@@ -14,6 +14,16 @@ describe('Joi custom phone validation', function() {
     done()
   })
 
+  it('phone rule must not validate non E164 compliant phone numbers', function(done) {
+    const schema = phoneRule.phone().validate()
+    const validation = Joi.validate('07 70 48 29 49', schema)
+    if (validation.error) {
+      return done()
+    }
+    done('Invalid phone number has been validated incorrectly')
+  })
+
+
   it('phone rule must not validate invalid phone numbers with fake prefix', function(done) {
     const schema = phoneRule.phone().validate()
     const validation = Joi.validate('0000123456789', schema)

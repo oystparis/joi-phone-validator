@@ -11,8 +11,9 @@
     "build": "tsc -p .",
     "lint": "tslint -p . --type-check",
     "start": "node .",
-    "prepublish": "npm run lint && npm run build && npm test",
-    "test": "mocha"
+    "prepublishOnly": "npm run lint && npm run build && npm test",
+    "test": "mocha",
+    "postinstall": "npm run build"
   },
   "typings": "lib/phone_validator.d.ts",
   "repository": {
