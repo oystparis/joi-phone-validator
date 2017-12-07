@@ -63,6 +63,21 @@ describe('Joi custom phone validation', function() {
     done()
   })
 
+  it('phone rule must validate various countries mobile numbers', function(done) {
+    const schema = phoneRule.phone().mobile()
+    const errors = [
+      '+14033060485', // Canada
+      '+32460224941', // Belgium
+      '+447520632751', // UK
+      '+16149438597' // USA
+    ]
+      .map(phone => Joi.validate(phone, schema).error)
+      .filter(e => !!e)
+      .join('\n')
+
+    done(errors.length ? new Error(errors) : undefined)
+  })
+
   it('phone rule must not validate fixed line numbers',function(done) {
     const schema = phoneRule.phone().mobile()
     const validation = Joi.validate('+33101020304', schema)
