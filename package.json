@@ -1,6 +1,6 @@
 {
   "name": "@oyst/joi-phone-validator",
-  "version": "2.0.2",
+  "version": "2.1.0-beta1",
   "engines": {
     "node": ">=4.0",
     "npm": ">=2.0"
