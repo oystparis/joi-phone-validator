@@ -33,8 +33,9 @@ export default Joi.extend({
     // Weak Joi typings bis :(
     validate (this: any, _: any, value: any, state: any, options: any) {
       try {
+        const { MOBILE, FIXED_LINE_OR_MOBILE } = PhoneNumberType
         const phoneNumber = phoneNumberUtil.parse(value)
-        const isMobile = phoneNumberUtil.getNumberType(phoneNumber) === PhoneNumberType.MOBILE
+        const isMobile = [MOBILE, FIXED_LINE_OR_MOBILE].includes(phoneNumberUtil.getNumberType(phoneNumber))
         if (!isMobile) {
           return this.createError('phone.mobile', { v: value }, state, options)
         }
